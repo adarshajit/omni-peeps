@@ -1,28 +1,52 @@
 import React, { useState } from 'react';
-import { HAIR_STYLES } from './constants';
-import Avatar from './Avatar';
+import SelectField from './components/SelectField';
+import Avatar from './components/Avatar';
+import { IAvatarStyle } from '../utils/interfaces';
+import * as STYLE from '../utils/constants';
 import './App.css';
 
 const App = () => {
-   const [hairStyle, setHairStyle] = useState('noHair1');
+   const [avatarStyle, setAvatarStyle] = useState<IAvatarStyle>({
+      head: 'noHair1',
+      face: 'smile',
+      facialHair: '',
+   });
 
-   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-      setHairStyle(e.target.value);
+   const handleHeadChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setAvatarStyle({ ...avatarStyle, head: e.target.value });
+   };
+
+   const handleFaceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setAvatarStyle({ ...avatarStyle, face: e.target.value });
+   };
+
+   const handleFacialHairChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setAvatarStyle({ ...avatarStyle, facialHair: e.target.value });
    };
 
    return (
-      <div>
+      <>
          <h1>People DB</h1>
-         <select placeholder="Choose hair style" onChange={handleChange}>
-            <option value="noHair1">-- choose a hair style --</option>
-            {HAIR_STYLES.map((hair, idx) => (
-               <option value={hair} key={idx + 1}>
-                  {hair}
-               </option>
-            ))}
-         </select>
-         <Avatar hairStyle={hairStyle} />
-      </div>
+         <SelectField
+            placeholder="Choose head style"
+            handleChange={handleHeadChange}
+            defaultValue="noHair1"
+            optionItems={STYLE.HEAD}
+         />
+         <SelectField
+            placeholder="Choose face style"
+            handleChange={handleFaceChange}
+            defaultValue="smile"
+            optionItems={STYLE.FACE}
+         />
+         <SelectField
+            placeholder="Choose facial hair"
+            handleChange={handleFacialHairChange}
+            defaultValue=""
+            optionItems={STYLE.FACIAL_HAIR}
+         />
+         <Avatar avatarStyle={avatarStyle} />
+      </>
    );
 };
 
