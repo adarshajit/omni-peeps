@@ -9,7 +9,11 @@ const customisePeep = (avatarStyle: any) => {
       head: [avatarStyle.head],
       face: [avatarStyle.face],
       facialHair: [avatarStyle.facialHair],
-      // ... and other options
+      accessories: [avatarStyle.accessories],
+      mask: [avatarStyle.mask],
+      skinColor: [avatarStyle.skinColor],
+      clothingColor: [avatarStyle.clothingColor],
+      hairColor: [avatarStyle.hairColor],
    });
    return SVG;
 };

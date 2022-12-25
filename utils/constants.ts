@@ -100,3 +100,47 @@ export const FACIAL_HAIR = [
    'moustache8',
    'moustache9',
 ];
+
+export const ACCESSORIES = [
+   'eyepatch',
+   'glasses',
+   'glasses2',
+   'glasses3',
+   'glasses4',
+   'glasses5',
+   'sunglasses',
+   'sunglasses2',
+];
+
+export const MASK = ['medicalMask', 'respirator'];
+
+export const SKIN_COLOR = [
+   'variant01',
+   'variant02',
+   'variant03',
+   'variant04',
+   'variant05',
+];
+
+export const CLOTHING_COLOR = [
+   'red01',
+   'orange01',
+   'yellow01',
+   'green01',
+   'tail01',
+   'blue01',
+   'pink01',
+];
+
+export const HAIR_COLOR = [
+   'variant01',
+   'variant02',
+   'variant03',
+   'variant04',
+   'variant05',
+   'variant06',
+   'variant07',
+   'variant08',
+   'variant09',
+   'variant10',
+];
