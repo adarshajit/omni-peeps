@@ -82,7 +82,7 @@ export const FACE: string[] = [
    'veryAngry',
 ];
 
-export const FACIAL_HAIR = [
+export const FACIAL_HAIR: string[] = [
    'chin',
    'full',
    'full2',
@@ -101,7 +101,7 @@ export const FACIAL_HAIR = [
    'moustache9',
 ];
 
-export const ACCESSORIES = [
+export const ACCESSORIES: string[] = [
    'eyepatch',
    'glasses',
    'glasses2',
@@ -112,7 +112,7 @@ export const ACCESSORIES = [
    'sunglasses2',
 ];
 
-export const MASK = ['medicalMask', 'respirator'];
+export const MASK: string[] = ['medicalMask', 'respirator'];
 
 export const SKIN_COLOR = [
    'variant01',
@@ -122,7 +122,7 @@ export const SKIN_COLOR = [
    'variant05',
 ];
 
-export const CLOTHING_COLOR = [
+export const CLOTHING_COLOR: string[] = [
    'red01',
    'orange01',
    'yellow01',
@@ -132,7 +132,7 @@ export const CLOTHING_COLOR = [
    'pink01',
 ];
 
-export const HAIR_COLOR = [
+export const HAIR_COLOR: string[] = [
    'variant01',
    'variant02',
    'variant03',
