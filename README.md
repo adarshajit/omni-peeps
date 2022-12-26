@@ -1,3 +1,2 @@
-# People-DB
-
-PeopleDB built using React Query
+# Omni Peeps
+Create custom avatars!

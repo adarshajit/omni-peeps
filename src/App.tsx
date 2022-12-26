@@ -54,7 +54,7 @@ const App = () => {
 
    return (
       <>
-         <h1>People DB</h1>
+         <h1>Omni peeps</h1>
          <select onChange={(e) => setGender(e.target.value)}>
             <option value="male">Male</option>
             <option value="female">Female</option>
