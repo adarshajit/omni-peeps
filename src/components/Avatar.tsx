@@ -10,7 +10,6 @@ const customisePeep = (avatarStyle: any) => {
       face: [avatarStyle.face],
       facialHair: [avatarStyle.facialHair],
       accessories: [avatarStyle.accessories],
-      mask: [avatarStyle.mask],
       skinColor: [avatarStyle.skinColor],
       clothingColor: [avatarStyle.clothingColor],
       hairColor: [avatarStyle.hairColor],

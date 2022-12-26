@@ -37,10 +37,4 @@ export const SELECT_FIELD_PROPS = [
       defaultValue: 'yellow01',
       optionItems: FEATURE.CLOTHING_COLOR,
    },
-   {
-      feature: 'hairColor',
-      placeholder: 'Choose hair color',
-      defaultValue: 'variant01',
-      optionItems: FEATURE.HAIR_COLOR,
-   },
 ];
