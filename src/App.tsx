@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Avatar from './components/Avatar';
-import { IAvatarStyle } from '../utils/interfaces';
+import { IAvatarStyle } from './types/interfaces';
 import SelectField from './components/SelectField';
-import { SELECT_FIELD_PROPS } from '../utils/constants/selectFieldProps';
-import './App.css';
+import { SELECT_FIELD_PROPS } from './constants/selectFieldProps';
 
 const App = () => {
    const [avatarStyle, setAvatarStyle] = useState<IAvatarStyle>({
