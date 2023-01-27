@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Avatar from './components/Avatar';
-import { IAvatarStyle } from './types/interfaces';
+import { IAvatarStyle } from './types';
 import SelectField from './components/SelectField';
 import { SELECT_FIELD_PROPS } from './constants/selectFieldProps';
 import { BASE_URL } from './constants/baseUrl';

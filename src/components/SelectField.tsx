@@ -1,4 +1,4 @@
-import { ISelectField } from '../types/interfaces';
+import { ISelectField } from '../types';
 
 const SelectField = ({
    placeholder,

@@ -1,5 +1,5 @@
 import useCustomise from '../hooks/useCustomise';
-import { IAvatarStyle } from '../types/interfaces';
+import { IAvatarStyle } from '../types';
 
 const Avatar = ({ avatarStyle }: { avatarStyle: IAvatarStyle }) => {
    const generatedAvatar = useCustomise(avatarStyle);

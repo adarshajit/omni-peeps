@@ -1,4 +1,4 @@
-import { IAvatarStyle } from '../types/interfaces';
+import { IAvatarStyle } from '../types';
 
 export const generateAvatar = (
    avatarStyle: IAvatarStyle,
