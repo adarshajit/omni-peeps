@@ -1,11 +1,11 @@
-import { ISelectField } from '../../utils/interfaces';
+import { ISelectField } from '../types/interfaces';
 
 const SelectField = ({
    placeholder,
    handleChange,
    defaultValue,
    optionItems,
-}: ISelectField): any => {
+}: ISelectField) => {
    return (
       <select onChange={handleChange}>
          <option value={defaultValue}>-- {placeholder} --</option>
