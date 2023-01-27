@@ -3,6 +3,8 @@ import Avatar from './components/Avatar';
 import { IAvatarStyle } from './types/interfaces';
 import SelectField from './components/SelectField';
 import { SELECT_FIELD_PROPS } from './constants/selectFieldProps';
+import { BASE_URL } from './constants/baseUrl';
+import { generateAvatar } from './utils/generateAvatar';
 
 const App = () => {
    const [avatarStyle, setAvatarStyle] = useState<IAvatarStyle>({
@@ -17,7 +19,7 @@ const App = () => {
 
    const [gender, setGender] = useState('');
 
-   let BASE_URL = 'https://avatars.dicebear.com/api/open-peeps/:example.svg';
+   let url = `${BASE_URL}/:example.svg`;
 
    let selectFieldProps = SELECT_FIELD_PROPS;
 
@@ -25,24 +27,10 @@ const App = () => {
       selectFieldProps = SELECT_FIELD_PROPS.filter(
          (item) => item.feature !== 'facialHair'
       );
-      BASE_URL = 'https://avatars.dicebear.com/api/open-peeps/:seed.svg';
+      url = `${BASE_URL}/:seed.svg`;
    }
 
-   const generateAvatar = (avatarStyle: IAvatarStyle): string => {
-      const queryParams = Object.entries(avatarStyle).filter(
-         ([key, value]) => value != ''
-      );
-      const queryString = queryParams.reduce(
-         (acc, [key, value]) => acc + `${key}=${value}&`,
-         ''
-      );
-
-      const IMAGE_URL = `${BASE_URL}?${queryString}`;
-
-      return IMAGE_URL;
-   };
-
-   const IMAGE = generateAvatar(avatarStyle);
+   const IMAGE = generateAvatar(avatarStyle, url);
 
    const handleChange = (
       feature: string,
