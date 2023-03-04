@@ -15,8 +15,7 @@ const App = () => {
       facialHairProbability: 0,
       accessoriesProbability: 0,
    });
-
-   let selectFieldProps = SELECT_FIELD_PROPS;
+   const [shouldShowwGeneratedUrl, setShouldShowGeneratedUrl] = useState(false);
 
    const IMAGE = generateAvatar(avatarStyle);
 
@@ -28,27 +27,52 @@ const App = () => {
          ...avatarStyle,
          [feature]: e.target.value,
       });
+      setShouldShowGeneratedUrl(false);
+   };
+
+   const handleGenerate = () => {
+      setShouldShowGeneratedUrl(true);
    };
 
    return (
-      <>
-         <h1>Omni peeps</h1>
+      <div className="p-10">
+         <h1 className="text-2xl font-bold">Omni peeps</h1>
+         <div className="flex justify-evenly">
+            <div className="flex justify-center items-center">
+               <img src={IMAGE} width={300} height={300} />
+            </div>
 
-         {selectFieldProps.map((item, key) => (
-            <SelectField
-               key={item.feature}
-               placeholder={item.placeholder}
-               handleChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  handleChange(item.feature, e)
-               }
-               defaultValue={item.defaultValue}
-               optionItems={item.optionItems}
-            />
-         ))}
+            <div className="flex flex-col justify-center gap-2">
+               {SELECT_FIELD_PROPS.map((item, key) => (
+                  <React.Fragment key={item.feature}>
+                     <SelectField
+                        placeholder={item.placeholder}
+                        handleChange={(
+                           e: React.ChangeEvent<HTMLSelectElement>
+                        ) => handleChange(item.feature, e)}
+                        defaultValue={item.defaultValue}
+                        optionItems={item.optionItems}
+                     />
+                  </React.Fragment>
+               ))}
+            </div>
+         </div>
 
-         <img src={IMAGE} width={200} height={200} />
-         <a href={IMAGE}>{IMAGE}</a>
-      </>
+         <div className="flex flex-col justify-center items-center gap-2 pt-10">
+            <div className="flex gap-2">
+               <button
+                  className="h-12 w-48 bg-black text-white p-3"
+                  onClick={handleGenerate}
+               >
+                  Generate
+               </button>
+               <button className="h-12 w-48 bg-black text-white p-3">
+                  I'm feeling lucky
+               </button>
+            </div>
+            {shouldShowwGeneratedUrl && <a href={IMAGE}>{IMAGE}</a>}
+         </div>
+      </div>
    );
 };
 
