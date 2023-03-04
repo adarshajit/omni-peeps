@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import Avatar from './components/Avatar';
 import { IAvatarStyle } from './types';
 import SelectField from './components/SelectField';
 import { SELECT_FIELD_PROPS } from './constants/selectFieldProps';
-import { BASE_URL } from './constants/baseUrl';
 import { generateAvatar } from './utils/generateAvatar';
 
 const App = () => {
@@ -12,43 +10,33 @@ const App = () => {
       face: 'smile',
       facialHair: '',
       accessories: '',
-      skinColor: 'variant02',
-      clothingColor: 'yellow01',
-      hairColor: 'variant01',
+      skinColor: 'd08b5b',
+      clothingColor: 'fdea6b',
+      facialHairProbability: 0,
+      accessoriesProbability: 0,
    });
-
-   const [gender, setGender] = useState('');
-
-   let url = `${BASE_URL}/:example.svg`;
 
    let selectFieldProps = SELECT_FIELD_PROPS;
 
-   if (gender === 'female') {
-      selectFieldProps = SELECT_FIELD_PROPS.filter(
-         (item) => item.feature !== 'facialHair'
-      );
-      url = `${BASE_URL}/:seed.svg`;
-   }
-
-   const IMAGE = generateAvatar(avatarStyle, url);
+   const IMAGE = generateAvatar(avatarStyle);
 
    const handleChange = (
       feature: string,
       e: React.ChangeEvent<HTMLSelectElement>
    ) => {
-      setAvatarStyle({ ...avatarStyle, [feature]: e.target.value });
+      setAvatarStyle({
+         ...avatarStyle,
+         [feature]: e.target.value,
+      });
    };
 
    return (
       <>
          <h1>Omni peeps</h1>
-         <select onChange={(e) => setGender(e.target.value)}>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-         </select>
 
-         {selectFieldProps.map((item) => (
+         {selectFieldProps.map((item, key) => (
             <SelectField
+               key={item.feature}
                placeholder={item.placeholder}
                handleChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                   handleChange(item.feature, e)
@@ -58,7 +46,7 @@ const App = () => {
             />
          ))}
 
-         <Avatar avatarStyle={avatarStyle} />
+         <img src={IMAGE} width={200} height={200} />
          <a href={IMAGE}>{IMAGE}</a>
       </>
    );

@@ -114,33 +114,14 @@ export const ACCESSORIES: string[] = [
 
 export const MASK: string[] = ['medicalMask', 'respirator'];
 
-export const SKIN_COLOR = [
-   'variant01',
-   'variant02',
-   'variant03',
-   'variant04',
-   'variant05',
-];
+export const SKIN_COLOR = ['694d3d', 'ae5d29', 'd08b5b', 'edb98a', 'ffdbb4'];
 
 export const CLOTHING_COLOR: string[] = [
-   'red01',
-   'orange01',
-   'yellow01',
-   'green01',
-   'tail01',
-   'blue01',
-   'pink01',
-];
-
-export const HAIR_COLOR: string[] = [
-   'variant01',
-   'variant02',
-   'variant03',
-   'variant04',
-   'variant05',
-   'variant06',
-   'variant07',
-   'variant08',
-   'variant09',
-   'variant10',
+   '8fa7df',
+   '9ddadb',
+   '78e185',
+   'e279c7',
+   'e78276',
+   'fdea6b',
+   'ffcf77',
 ];

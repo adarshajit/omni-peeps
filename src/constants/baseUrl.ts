@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://avatars.dicebear.com/api/open-peeps';
+export const BASE_URL = 'https://api.dicebear.com/5.x/open-peeps/svg';

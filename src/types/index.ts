@@ -5,7 +5,8 @@ export interface IAvatarStyle {
    accessories: string;
    skinColor: string;
    clothingColor: string;
-   hairColor: string;
+   facialHairProbability: number;
+   accessoriesProbability: number;
 }
 
 export interface ISelectField {
