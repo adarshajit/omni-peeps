@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { IAvatarStyle } from './types';
 import SelectField from './components/SelectField';
 import { SELECT_FIELD_PROPS } from './constants/selectFieldProps';
@@ -10,10 +10,13 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { INITIAL_VALUES } from './constants/avatarStyle';
 import FileSaver from 'file-saver';
+import * as FEATURE from './constants/features';
+import { getRandomItem } from './utils/getRandomItem';
 
 const App = () => {
    const [avatarStyle, setAvatarStyle] = useState<IAvatarStyle>(INITIAL_VALUES);
    const [collections, setCollections] = useState<string[]>([]);
+   const formRef = useRef<HTMLFormElement>(null);
 
    const IMAGE = generateAvatar(avatarStyle);
 
@@ -39,10 +42,26 @@ const App = () => {
 
    const handleReset = () => {
       setAvatarStyle(INITIAL_VALUES);
+      if (formRef.current !== null) formRef.current.reset();
    };
 
    const handleExport = (url: string) => {
       FileSaver.saveAs(url, `${crypto.randomUUID()}.png`);
+   };
+
+   const handleGenerateRandomAvatar = () => {
+      const randomAvatar = {
+         head: getRandomItem(FEATURE.HEAD),
+         face: getRandomItem(FEATURE.FACE),
+         facialHair: getRandomItem(FEATURE.FACIAL_HAIR),
+         accessories: getRandomItem(FEATURE.ACCESSORIES),
+         skinColor: getRandomItem(FEATURE.SKIN_COLOR),
+         clothingColor: getRandomItem(FEATURE.CLOTHING_COLOR),
+         backgroundColor: getRandomItem(FEATURE.BACKGROUND_COLOR),
+         facialHairProbability: 0,
+         accessoriesProbability: 0,
+      };
+      setAvatarStyle(randomAvatar);
    };
 
    return (
@@ -54,7 +73,7 @@ const App = () => {
                <img src={IMAGE} width={300} />
             </div>
 
-            <div className="flex flex-col justify-center gap-2">
+            <form ref={formRef} className="flex flex-col justify-center gap-2">
                {SELECT_FIELD_PROPS.map((item, key) => (
                   <React.Fragment key={item.feature}>
                      <SelectField
@@ -67,7 +86,7 @@ const App = () => {
                      />
                   </React.Fragment>
                ))}
-            </div>
+            </form>
          </div>
 
          <div className="flex flex-col justify-center items-center gap-2 pt-10">
@@ -78,8 +97,11 @@ const App = () => {
                >
                   Generate
                </button>
-               <button className="h-12 w-48 bg-black text-white p-3">
-                  I'm feeling lucky
+               <button
+                  className="h-12 w-48 bg-black text-white p-3"
+                  onClick={handleGenerateRandomAvatar}
+               >
+                  I'm feeling lucky ✨
                </button>
                <button
                   className="h-12 w-48 bg-black text-white p-3"
@@ -90,8 +112,9 @@ const App = () => {
             </div>
             <div className="flex justify-center items-center gap-10 p-5">
                {collections.map((collection) => (
-                  <div className="flex flex-col p-5 rounded shadow-xl">
-                     <div className="flex justify-end gap-3">
+                  <div className="flex flex-col p-5 rounded border-2 border-black">
+                     <img src={collection} width={300} />
+                     <div className="flex justify-end gap-3 pt-3">
                         <IconContext.Provider value={{ size: '1.75em' }}>
                            <BiExport
                               className="hover:transform hover:scale-110 transition-all duration-300 hover: cursor-pointer"
@@ -103,8 +126,6 @@ const App = () => {
                            />
                         </IconContext.Provider>
                      </div>
-
-                     <img src={collection} width={300} />
                   </div>
                ))}
             </div>
