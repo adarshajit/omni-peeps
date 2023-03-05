@@ -16,6 +16,10 @@ export const generateAvatar = (avatarStyle: IAvatarStyle): string => {
          generatedURL += `facialHairProbability=100&`;
       }
 
+      if (key === 'mask') {
+         generatedURL += `maskProbability=100&`;
+      }
+
       generatedURL += `${key}=${value}&`;
    });
 

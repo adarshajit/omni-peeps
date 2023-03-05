@@ -37,4 +37,10 @@ export const SELECT_FIELD_PROPS = [
       defaultValue: 'yellow01',
       optionItems: FEATURE.CLOTHING_COLOR,
    },
+   {
+      feature: 'mask',
+      placeholder: 'Choose mask',
+      defaultValue: '',
+      optionItems: FEATURE.MASK,
+   },
 ];
