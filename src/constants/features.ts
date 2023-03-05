@@ -125,3 +125,11 @@ export const CLOTHING_COLOR: string[] = [
    'fdea6b',
    'ffcf77',
 ];
+
+export const BACKGROUND_COLOR = [
+   'b6e3f4',
+   'c0aede',
+   'd1d4f9',
+   'ffd5dc',
+   'ffdfbf',
+];

@@ -43,4 +43,10 @@ export const SELECT_FIELD_PROPS = [
       defaultValue: '',
       optionItems: FEATURE.MASK,
    },
+   {
+      feature: 'backgroundColor',
+      placeholder: 'Choose background',
+      defaultValue: '',
+      optionItems: FEATURE.BACKGROUND_COLOR,
+   },
 ];
