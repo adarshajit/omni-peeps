@@ -9,6 +9,7 @@ import { IconContext } from 'react-icons/lib';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { INITIAL_VALUES } from './constants/avatarStyle';
+import FileSaver from 'file-saver';
 
 const App = () => {
    const [avatarStyle, setAvatarStyle] = useState<IAvatarStyle>(INITIAL_VALUES);
@@ -33,11 +34,15 @@ const App = () => {
 
    const handleCopyUrl = (url: string) => {
       navigator.clipboard.writeText(url);
-      toast('Copied avatar image url! ✨');
+      toast.success('Copied avatar url to clipboard! ✨');
    };
 
    const handleReset = () => {
       setAvatarStyle(INITIAL_VALUES);
+   };
+
+   const handleExport = (url: string) => {
+      FileSaver.saveAs(url, `${crypto.randomUUID()}.png`);
    };
 
    return (
@@ -83,19 +88,22 @@ const App = () => {
                   Reset
                </button>
             </div>
-            <a href={IMAGE}>{IMAGE}</a>
             <div className="flex justify-center items-center gap-10 p-5">
                {collections.map((collection) => (
                   <div className="flex flex-col p-5 rounded shadow-xl">
                      <div className="flex justify-end gap-3">
                         <IconContext.Provider value={{ size: '1.75em' }}>
-                           <BiExport className="hover:transform hover:scale-110 transition-all duration-300 hover: cursor-pointer" />
+                           <BiExport
+                              className="hover:transform hover:scale-110 transition-all duration-300 hover: cursor-pointer"
+                              onClick={() => handleExport(collection)}
+                           />
                            <FiCopy
                               className="hover:transform hover:scale-110 transition-all duration-300 hover: cursor-pointer"
                               onClick={() => handleCopyUrl(collection)}
                            />
                         </IconContext.Provider>
                      </div>
+
                      <img src={collection} width={300} />
                   </div>
                ))}
