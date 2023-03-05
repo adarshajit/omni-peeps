@@ -15,7 +15,7 @@ const App = () => {
       facialHairProbability: 0,
       accessoriesProbability: 0,
    });
-   const [shouldShowwGeneratedUrl, setShouldShowGeneratedUrl] = useState(false);
+   const [shouldShowGeneratedUrl, setShouldShowGeneratedUrl] = useState(false);
 
    const IMAGE = generateAvatar(avatarStyle);
 
@@ -70,7 +70,7 @@ const App = () => {
                   I'm feeling lucky
                </button>
             </div>
-            {shouldShowwGeneratedUrl && <a href={IMAGE}>{IMAGE}</a>}
+            {shouldShowGeneratedUrl && <a href={IMAGE}>{IMAGE}</a>}
          </div>
       </div>
    );
