@@ -12,6 +12,7 @@ import { INITIAL_VALUES } from './constants/avatarStyle';
 import FileSaver from 'file-saver';
 import * as FEATURE from './constants/features';
 import { getRandomItem } from './utils/getRandomItem';
+import Navbar from './components/Navbar';
 
 const App = () => {
    const [avatarStyle, setAvatarStyle] = useState<IAvatarStyle>(INITIAL_VALUES);
@@ -31,8 +32,11 @@ const App = () => {
    };
 
    const handleGenerate = () => {
-      if (!collections.includes(IMAGE))
+      if (!collections.includes(IMAGE)) {
          setCollections((prev) => [...prev, IMAGE]);
+         return;
+      }
+      toast.error('Avatar already generated');
    };
 
    const handleCopyUrl = (url: string) => {
@@ -65,8 +69,8 @@ const App = () => {
    };
 
    return (
-      <div className="p-10">
-         <h1 className="text-2xl font-bold">Omni peeps</h1>
+      <div>
+         <Navbar />
          <ToastContainer />
          <div className="flex justify-evenly">
             <div className="flex justify-center items-center">
@@ -92,25 +96,25 @@ const App = () => {
          <div className="flex flex-col justify-center items-center gap-2 pt-10">
             <div className="flex gap-2">
                <button
-                  className="h-12 w-48 bg-black text-white p-3"
+                  className=" h-12 w-48 bg-gray-800 text-white p-3 rounded hover:bg-black"
                   onClick={handleGenerate}
                >
                   Generate
                </button>
                <button
-                  className="h-12 w-48 bg-black text-white p-3"
+                  className=" h-12 w-48 bg-gray-800 text-white p-3 rounded  hover:bg-black"
                   onClick={handleGenerateRandomAvatar}
                >
                   I'm feeling lucky ✨
                </button>
                <button
-                  className="h-12 w-48 bg-black text-white p-3"
+                  className=" h-12 w-48 bg-gray-800 text-white p-3 rounded  hover:bg-black"
                   onClick={handleReset}
                >
                   Reset
                </button>
             </div>
-            <div className="flex justify-center items-center gap-10 p-5">
+            <div className="flex flex-wrap justify-center items-center gap-10 p-5">
                {collections.map((collection) => (
                   <div className="flex flex-col p-5 rounded border-2 border-black">
                      <img src={collection} width={300} />
