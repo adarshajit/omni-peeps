@@ -14,6 +14,7 @@ import Navbar from '@/components/Navbar';
 import AvatarPreview from '@/components/AvatarPreview';
 import AvatarControls from '@/components/AvatarControls';
 import CollectionGrid from '@/components/CollectionGrid';
+import Footer from '@/components/Footer';
 
 const App = () => {
    const [collections, setCollections] = useState<string[]>([]);
@@ -132,11 +133,19 @@ const App = () => {
    }, [reset]);
 
    return (
-      <div className="min-h-screen bg-background font-sans text-foreground">
+      <div className="min-h-screen bg-background font-sans text-foreground flex flex-col">
          <Navbar />
          <Toaster />
 
-         <main className="container mx-auto py-10 px-4 md:px-0">
+         <main className="container mx-auto py-10 px-4 md:px-0 flex-1">
+            <div className="mb-8 space-y-4">
+               <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mt-10">
+                  Omni Peeps Avatar Generator
+               </h1>
+               <p className="text-xl text-muted-foreground max-w-[650px]">
+                  🎨 Create unique, hand-drawn avatars for your profiles and designs. Mix and match styles to create your perfect look.
+               </p>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                {/* Left Column: Avatar Preview */}
                <AvatarPreview
@@ -162,6 +171,7 @@ const App = () => {
                handleExport={handleExport}
             />
          </main>
+         <Footer />
       </div>
    );
 };
