@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiCode } from 'react-icons/fi';
 
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
    return (
       <div className="flex justify-between items-center p-4 border-b">
          <h1 className="text-2xl font-bold tracking-tight">Omni peeps</h1>

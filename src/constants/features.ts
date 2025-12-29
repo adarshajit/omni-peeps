@@ -114,22 +114,28 @@ export const ACCESSORIES: string[] = [
 
 export const MASK: string[] = ['medicalMask', 'respirator'];
 
-export const SKIN_COLOR = ['694d3d', 'ae5d29', 'd08b5b', 'edb98a', 'ffdbb4'];
-
-export const CLOTHING_COLOR: string[] = [
-   '8fa7df',
-   '9ddadb',
-   '78e185',
-   'e279c7',
-   'e78276',
-   'fdea6b',
-   'ffcf77',
+export const SKIN_COLOR: { label: string; value: string }[] = [
+   { value: '694d3d', label: 'Dark Brown' },
+   { value: 'ae5d29', label: 'Brown' },
+   { value: 'd08b5b', label: 'Tan' },
+   { value: 'edb98a', label: 'Light Tan' },
+   { value: 'ffdbb4', label: 'Pale' },
 ];
 
-export const BACKGROUND_COLOR = [
-   'b6e3f4',
-   'c0aede',
-   'd1d4f9',
-   'ffd5dc',
-   'ffdfbf',
+export const CLOTHING_COLOR: { label: string; value: string }[] = [
+   { value: '8fa7df', label: 'Periwinkle' },
+   { value: '9ddadb', label: 'Light Blue' },
+   { value: '78e185', label: 'Light Green' },
+   { value: 'e279c7', label: 'Pink' },
+   { value: 'e78276', label: 'Salmon' },
+   { value: 'fdea6b', label: 'Yellow' },
+   { value: 'ffcf77', label: 'Gold' },
+];
+
+export const BACKGROUND_COLOR: { label: string; value: string }[] = [
+   { value: 'b6e3f4', label: 'Alice Blue' },
+   { value: 'c0aede', label: 'Lavender' },
+   { value: 'd1d4f9', label: 'Periwinkle Blue' },
+   { value: 'ffd5dc', label: 'Light Pink' },
+   { value: 'ffdfbf', label: 'Peach' },
 ];

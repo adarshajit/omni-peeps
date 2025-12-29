@@ -4,7 +4,7 @@ interface ISelectFieldData {
    feature: string;
    placeholder: string;
    defaultValue: string;
-   optionItems: string[];
+   optionItems: (string | { label: string; value: string })[];
 }
 
 export const SELECT_FIELD_PROPS: ISelectFieldData[] = [
@@ -35,13 +35,13 @@ export const SELECT_FIELD_PROPS: ISelectFieldData[] = [
    {
       feature: 'skinColor',
       placeholder: 'Choose skin color',
-      defaultValue: 'variant02',
+      defaultValue: 'd08b5b',
       optionItems: FEATURE.SKIN_COLOR,
    },
    {
       feature: 'clothingColor',
       placeholder: 'Choose clothingColor',
-      defaultValue: 'yellow01',
+      defaultValue: 'fdea6b',
       optionItems: FEATURE.CLOTHING_COLOR,
    },
    {
@@ -53,7 +53,7 @@ export const SELECT_FIELD_PROPS: ISelectFieldData[] = [
    {
       feature: 'backgroundColor',
       placeholder: 'Choose background',
-      defaultValue: '',
+      defaultValue: 'b6e3f4',
       optionItems: FEATURE.BACKGROUND_COLOR,
    },
 ];

@@ -7,13 +7,16 @@ export interface IAvatarStyle {
    accessories: string;
    skinColor: string;
    clothingColor: string;
+   backgroundColor: string;
+   mask: string;
    facialHairProbability: number;
    accessoriesProbability: number;
+   maskProbability: number;
 }
 
 export interface ISelectField {
    placeholder: string;
    handleChange: (value: string) => void;
-   defaultValue: string;
-   optionItems: string[];
+   value: string;
+   optionItems: (string | { label: string; value: string })[];
 }
