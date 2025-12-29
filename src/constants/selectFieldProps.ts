@@ -1,6 +1,13 @@
 import * as FEATURE from './features';
 
-export const SELECT_FIELD_PROPS = [
+interface ISelectFieldData {
+   feature: string;
+   placeholder: string;
+   defaultValue: string;
+   optionItems: string[];
+}
+
+export const SELECT_FIELD_PROPS: ISelectFieldData[] = [
    {
       feature: 'head',
       placeholder: 'Choose head style',

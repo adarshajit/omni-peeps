@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 export interface IAvatarStyle {
    head: string;
    face: string;
@@ -11,7 +13,7 @@ export interface IAvatarStyle {
 
 export interface ISelectField {
    placeholder: string;
-   handleChange: any;
+   handleChange: (value: string) => void;
    defaultValue: string;
    optionItems: string[];
 }

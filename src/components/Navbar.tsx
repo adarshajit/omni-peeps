@@ -3,14 +3,15 @@ import { FiCode } from 'react-icons/fi';
 
 const Navbar = () => {
    return (
-      <div className="flex justify-between p-3">
-         <h1 className="text-2xl font-bold">Omni peeps</h1>
+      <div className="flex justify-between items-center p-4 border-b">
+         <h1 className="text-2xl font-bold tracking-tight">Omni peeps</h1>
          <a
             href="https://github.com/adarshajit/omni-peeps"
             target="_blank"
-            className="flex bg-gray-800 gap-2 h-10 w-24 rounded justify-center items-center hover:bg-black text-white p-3"
+            rel="noreferrer"
+            className="flex gap-2 items-center text-sm font-medium hover:underline"
          >
-            <FiCode />
+            <FiCode className="w-4 h-4" />
             Source
          </a>
       </div>
