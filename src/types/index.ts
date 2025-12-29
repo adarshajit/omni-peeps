@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 export interface IAvatarStyle {
    head: string;
    face: string;
@@ -5,13 +7,16 @@ export interface IAvatarStyle {
    accessories: string;
    skinColor: string;
    clothingColor: string;
+   backgroundColor: string;
+   mask: string;
    facialHairProbability: number;
    accessoriesProbability: number;
+   maskProbability: number;
 }
 
 export interface ISelectField {
    placeholder: string;
-   handleChange: any;
-   defaultValue: string;
-   optionItems: string[];
+   handleChange: (value: string) => void;
+   value: string;
+   optionItems: (string | { label: string; value: string })[];
 }
