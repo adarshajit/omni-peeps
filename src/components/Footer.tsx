@@ -2,7 +2,8 @@ import React from 'react';
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className="border-t py-6 md:py-8 mt-auto">
+    <footer className="mt-32 p-14 md:py-8 mt-auto">
+      <img src="https://assets.website-files.com/5e51b3b0337309d672efd94c/5e51cc5933d368febc351897_footer-img.svg" alt="footer-img" className="h-32 mb-4 flex items-center justify-center w-full"/>
       <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-0">
         <p className="text-center text-sm text-balance leading-loose text-muted-foreground md:text-left">
           Built by{' '}
